@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import museum from "/Users/soham/Desktop/Developer/code/museum/public/videos/museum3.mp4"
+import museum from "/Users/soham/Desktop/Developer/code/museum/mooseum/public/videos/museum3.mp4"
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
 import Nav from './Nav';
