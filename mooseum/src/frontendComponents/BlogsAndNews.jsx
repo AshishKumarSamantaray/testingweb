@@ -2,6 +2,7 @@ import React from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import LineLeft from './LineLeft';
 
 const data = [
   {
@@ -38,11 +39,8 @@ const BlogsAndNews = () => {
   return (
 
       <>
-        <div className="w-[100%] max-h-[2vw] p-[1vw] mt-[2vw] flex items-center justify-between">
-          <h1 className='text-[2vw] pl-[1.8vw] h-[100%] w-[20%] font-[400]'>BLOGS AND NEWS</h1>
-          <div className="line h-[0.1vw] mr-[2vw] w-[76.4%] bg-black"></div>
-        </div>
-        <div className='w-[80vw] mt-[2vw] ml-[10vw] mb-[4vw]'>
+        <LineLeft component="BLOGS AND NEWS"/>
+        <div className='w-[80vw] ml-[10vw] mb-[4vw]'>
           <div className='mt-20'>
             <Slider {...settings}>
             {
