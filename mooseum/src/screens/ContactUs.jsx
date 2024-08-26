@@ -17,7 +17,6 @@ const ContactUs = () => {
           <p className="text-xl font-bold">Contact No:<span className="font-normal">9999999999</span></p>
           <br/>
           <p className="text-xl ">**Note that we are available from 7:00AM to 7:00PM</p>
-
         </div>
       </div>
   )
