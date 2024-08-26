@@ -26,7 +26,6 @@ const HomeScreen = () => {
             </div>
 
 
-
             <div className="ai absolute z-[10] bottom-[0%] w-[100%] h-[3.3vw] bg-amber-800 flex items-center justify-center">
               <h1 className='text-[1vw] text-white font-thin'>To know more about the <span className='font-bold text-white'>AI</span>, <a href="" className='text-white underline'>Click Here</a></h1>
             </div>
