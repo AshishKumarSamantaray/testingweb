@@ -21,7 +21,7 @@ const HomeScreen = () => {
                 <div className="textcont relative  w-[55vw] h-[4vw] z-[10] overflow-hidden flex items-center justify-center">
                     <h1 ref={h1Ref} className='absolute z-[10] text-[4vw] tracking-[1.4vw] align-middle text-white translate-y-[100%]'>SANGRAHAMITRA</h1>
                 </div>
-                <div className='desc text-white font-[0.6vw] text-[0.7vw]'>ONLINE TICKETING AND CUSTOMER SERVICE SYSTEM POWERED BY AI</div>
+                <div className='desc text-white font-[0.6vw] text-[0.7vw]'>ONLINE TICKETING AND CUSTOMER SERVICE SYSTEM POWERED BY <span className="font-bold">SangraM AI</span></div>
                 <button className='text-[0.7vw] w-[7.5vw] h-[2.6vw] bg-[#1b0202] text-yellow-600 rounded-[2vw]'>GET TICKETS</button>
             </div>
 
