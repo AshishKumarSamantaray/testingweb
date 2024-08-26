@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
-import p1i1 from '/Users/soham/Desktop/Developer/code/museum/mooseum/public/assets/img 1.png';
-import p1i2 from '/Users/soham/Desktop/Developer/code/museum/mooseum/public/assets/img2.png';
-import p2i1 from '/Users/soham/Desktop/Developer/code/museum/mooseum/public/assets/img 3.png';
-import p2i2 from '/Users/soham/Desktop/Developer/code/museum/mooseum/public/assets/img 4.png';
-import p3i1 from '/Users/soham/Desktop/Developer/code/museum/mooseum/public/assets/img 5.png';
-import p3i2 from '/Users/soham/Desktop/Developer/code/museum/mooseum/public/assets/img 6.png';
-import p3i3 from '/Users/soham/Desktop/Developer/code/museum/mooseum/public/assets/img 7.png';
-import p3i4 from '/Users/soham/Desktop/Developer/code/museum/mooseum/public/assets/img 8.png';
+import p1i1 from '../../public/assets/img 1.png';
+import p1i2 from '../../public/assets/img 2.png';
+import p2i1 from '../../public/assets/img 3.png';
+import p2i2 from '../../public/assets/img 4.png';
+import p3i1 from '../../public/assets/img 5.png';
+import p3i2 from '../../public/assets/img 6.png';
+import p3i3 from '../../public/assets/img 7.png';
+import p3i4 from '../../public/assets/img 8.png';
 
 const Gallery = () => {
   const imageRefs = useRef([]);
