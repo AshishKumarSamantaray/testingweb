@@ -8,6 +8,7 @@ import p3i1 from '../../public/assets/img 5.png';
 import p3i2 from '../../public/assets/img 6.png';
 import p3i3 from '../../public/assets/img 7.png';
 import p3i4 from '../../public/assets/img 8.png';
+import LineRight from './LineRight';
 
 const Gallery = () => {
   const imageRefs = useRef([]);
@@ -38,12 +39,8 @@ const Gallery = () => {
 
   return (
     <>
-      <div className="w-[100%] mt-[2vw] min-h-[5vw] p-[1vw]  mb-[2vw] flex items-center justify-between">
-        <div className="line h-[0.1vw] ml-[2vw] w-[170%] bg-black"></div>
-        <h1 className='text-[2vw] pl-[2vw] mr-[2vw] h-[100%] w-[20%] '>GALLERY</h1>
-      </div>
-
-      <div className="gallery__items w-[100%] max-h-[100vh] flex items-center justify-between mt-[-2vw]">
+      <LineRight component="GALLERY"/>
+      <div className="gallery__items w-[100%] max-h-[100vh] flex items-center justify-between ">
         {/* Part 1 */}
         <div className="part1 p-[2vw] w-[25%] h-[100%] flex gap-[2vw] flex-col">
           <div

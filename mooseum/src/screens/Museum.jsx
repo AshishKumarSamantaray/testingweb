@@ -1,5 +1,7 @@
 import React from 'react'
 import Gallery from '../frontendComponents/Gallery'
+import LineLeft from '../frontendComponents/LineLeft'
+import LineRight from '../frontendComponents/LineRight'
 
 const Museum = ({dets}) => {
   return (
@@ -16,12 +18,8 @@ const Museum = ({dets}) => {
             <button className='w-[8.7vw] h-[3vw] rounded-[2vw] bg-[#1b0202] text-amber-600 p-[0.2vw]'><h4 className='text-[1vw] font-[200]'>GET TICKETS</h4></button>
         </div>
 
-        <div className="miscel w-[100%] min-h-[78vh] ">
-            <div className="w-[100%] min-h-[2vw] p-[1vw]  flex items-center justify-between">
-                <h1 className='text-[2vw] pl-[2vw] h-[100%] w-[20%] '>TIMING</h1>
-                <div className="line h-[0.1vw] mr-[2vw] w-[200%] bg-black"></div>
-            </div>
-
+        <div className="miscel w-[100%] mb-[2.5vw] max-h-[78vh] ">
+            <LineLeft component="TIMING"/>
             <div className="timings w-[100%] h-[10vw] ">
                 <div className="upper w-[100%] flex items-center justify-center h-[85%] ">
                     <div className="left h-[100%] flex items-center justify-center w-[50%] ">
@@ -75,10 +73,8 @@ const Museum = ({dets}) => {
                 </div>
             </div>
 
-            <div className="w-[100%] min-h-[2vw] p-[1vw]  flex items-center justify-between">
-                <div className="line h-[0.1vw] w-[170%] ml-[2vw] bg-black"></div>
-                <h1 className='text-[2vw] pl-[2vw] mr-[2vw] h-[100%] w-[20%] '>LOCATION</h1>
-            </div>
+
+            <LineRight component="LOCATION"/>
 
             <div className="locations w-[100%] h-[10vw]  flex items-center justify-between">
                 <div className="part1 pl-[3vw] h-[100%] w-[85%] flex items-center ">
@@ -94,22 +90,18 @@ const Museum = ({dets}) => {
                     </div>
                 </div>
             </div>
-            <div className="w-[100%] min-h-[2vw] p-[1vw]  flex items-center justify-between">
-                <h1 className='text-[2vw] pl-[2vw] h-[100%] w-[20%] '>ACCESSIBILITY</h1>
-                <div className="line h-[0.1vw] mr-[2vw] w-[170%] bg-black"></div>
-            </div>
-
+            <LineLeft component="ACCESSIBILITY"/>
             <div className="accessiblity flex items-center justify-around w-[100%] h-[10vw] ">
-                <div className="image h-[10vw] w-[10vw]  ">
+                <div className="image h-[6vw] w-[6vw]  ">
                     <img className="w-[100%] h-[100%] object-cover" src="https://imgs.search.brave.com/QUSx7FoyjKP-4tAcgV0R4uDu-SfKqg5DVm0my4KD7_c/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4z/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvaGVhbHRoLWNh/cmUtNjIvMzIvRGlz/YWJpbGl0eS0wMS02/NC5wbmc" alt="" />
                 </div>
-                <div className="image h-[10vw] w-[10vw]  ">
+                <div className="image h-[6vw] w-[6vw]  ">
                     <img className="w-[100%] h-[100%] object-contain" src="https://imgs.search.brave.com/OTj367x7qpe8SOZrFPXIJvZ5XEn0wnul9iEvf7k5z3o/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3dpZmktcG5n/LWJsYWNrLWFuZC13/aGl0ZS13aS1maS13/aWZpLXNlbWJvbC1r/YWJsb3N1ei1pbnRl/cm5ldC1pLWFyZXQt/c2lueWFsLTk2MC5w/bmc" alt="" />
                 </div>
-                <div className="image h-[10vw] w-[10vw]  ">
+                <div className="image h-[6vw] w-[6vw]  ">
                     <img className="w-[100%] h-[100%] object-contain" src="https://imgs.search.brave.com/_xc3uQLtcudGmTho8czM5bajzoQNrSNuhW10EN66Xys/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG40/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvY2FyLW1haW50/ZW5hbmNlLWFuZC1z/ZXJ2aWNlLzMyL3Bh/cmtpbmctY2FyLXRp/Y2tldC16b25lLTY0/LnBuZw" alt="" />
                 </div>
-                <div className="image h-[10vw] w-[10vw]  ">
+                <div className="image h-[6vw] w-[6vw]  ">
                     <img className="w-[100%] h-[100%] object-cover" src="https://imgs.search.brave.com/3s6ij5Rg5njD0XRVZeOIBrZqorEae7GwMjlqu0SSHh8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMTgv/ODg2LzU5MS9zbWFs/bC90b2lsZXQtcmVz/dHJvb20tbWVuLXdv/bWVuLWRpc2FibGVk/LWhhbmRpY2FwLXdo/ZWVsY2hhaXItc2ln/bi1wbmcucG5n" alt="" />
                 </div>
             </div>
