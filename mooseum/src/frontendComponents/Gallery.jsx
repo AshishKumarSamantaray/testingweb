@@ -8,7 +8,6 @@ import gsap from 'gsap';
 // import p3i2 from '../../public/assets/img 6.png';
 // import p3i3 from '../../public/assets/img 7.png';
 // import p3i4 from '../../public/assets/img 8.png';
-import LineRight from './LineRight';
 import {Link} from 'react-router-dom';
 
 const Gallery = () => {
@@ -137,8 +136,8 @@ const Gallery = () => {
         </div>
 
         {/* Part 3 */}
-        <div className="part3 p-[2vw]  w-[50%] h-[100%] flex gap-[5%] flex-col">
-          <div className="top w-[100%] h-[40%]">
+        <div className="part3 p-[2vw]  w-[50%] h-[100%] flex gap-[1vw] flex-col">
+          <div className="top w-[100%] h-[19.5vw]">
             <div
               className="p3i1 relative w-[100%] h-[15.7vw] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
               onMouseEnter={() => handleEnter(4)}
