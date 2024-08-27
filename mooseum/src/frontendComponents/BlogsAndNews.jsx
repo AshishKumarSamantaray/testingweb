@@ -39,7 +39,7 @@ const BlogsAndNews = () => {
   return (
 
       <>
-        <LineLeft component="UPDATES"/>
+        <LineLeft component="BLOGS AND NEWS"/>
         <div className='w-[80vw] ml-[10vw] mb-[4vw]'>
           <div className='mt-[2vw]'>
             <Slider {...settings}>

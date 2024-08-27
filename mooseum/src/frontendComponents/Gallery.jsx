@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 // import p1i1 from '../../public/assets/img 1.png';
 // import p1i2 from '../../public/assets/img 2.png';
@@ -40,10 +40,10 @@ const Gallery = () => {
 
   return (
     <>
-      <LineRight component="GALLERY"/>
+      {/*<LineRight component="GALLERY"/>*/}
       <div className="gallery__items w-[100%] h-[100vh] mt-[2vw] flex items-center justify-between ">
         {/* Part 1 */}
-        <div className="part1 p-[2vw] w-[25%] h-[100%] flex gap-[2vw] flex-col">
+        <div className="part1 p-[2vw]  w-[25%] h-[100%] flex gap-[2vw] flex-col">
           <div
             className="p1i1 relative w-[100%] h-[18vw] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
             onMouseEnter={() => handleEnter(0)}
@@ -90,7 +90,7 @@ const Gallery = () => {
         </div>
 
         {/* Part 2 */}
-        <div className="part2 p-[2vw] w-[25%] h-[100%] flex gap-[2vw] flex-col">
+        <div className="part2 p-[2vw] w-[25%]  h-[100%] flex gap-[2vw] flex-col">
           <div
             className="p2i1 relative w-[100%] h-[37vw] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
             onMouseEnter={() => handleEnter(2)}
@@ -137,8 +137,8 @@ const Gallery = () => {
         </div>
 
         {/* Part 3 */}
-        <div className="part3 p-[2vw] w-[50%] h-[100%] flex gap-[2vw] flex-col">
-          <div className="top">
+        <div className="part3 p-[2vw]  w-[50%] h-[100%] flex gap-[5%] flex-col">
+          <div className="top w-[100%] h-[40%]">
             <div
               className="p3i1 relative w-[100%] h-[15.7vw] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
               onMouseEnter={() => handleEnter(4)}
@@ -149,7 +149,7 @@ const Gallery = () => {
                   ref={createRef(4).imageRef}
                   src="https://images.pexels.com/photos/26872531/pexels-photo-26872531/free-photo-of-low-angle-view-of-a-ceiling-in-a-cathedral.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="p3i1"
-                  className="w-[100%] h-[100%] object-cover absolute z-[0]"
+                  className="w-[100%] h-[100%] object-cover "
                 />
               </Link>
               <div
@@ -162,10 +162,10 @@ const Gallery = () => {
             </div>
           </div>
 
-          <div className="bottom flex items-center justify-between">
-            <div className="left h-[100%] w-[47%] flex gap-[2vw] flex-col">
+          <div className="bottom flex items-center w-[100%] h-[60%] gap-[1vw]  justify-between">
+            <div className="left h-[100%]  w-[52%] flex gap-[2vw] flex-col">
               <div
-                className="p3bi1 relative w-[100%] h-[18vw] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
+                className="p3bi1 relative w-[100%] h-[50%] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
                 onMouseEnter={() => handleEnter(5)}
                 onMouseLeave={() => handleLeave(5)}
               >
@@ -187,7 +187,7 @@ const Gallery = () => {
               </div>
 
               <div
-                className="p3bi2 relative w-[100%] h-[15.4vw] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
+                className="p3bi2 relative w-[100%] h-[50%] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
                 onMouseEnter={() => handleEnter(6)}
                 onMouseLeave={() => handleLeave(6)}
               >
@@ -209,9 +209,9 @@ const Gallery = () => {
               </div>
             </div>
 
-            <div className="right h-[100%] w-[47%]">
+            <div className="right  h-[100%] w-[43%] flex items-center justify-center">
               <div
-                className="p3bi3 relative w-[100%] h-[35.4vw] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
+                className="p3bi3 relative w-[95%] h-[100%] z-[2] rounded-[1vw] bg-red-300 overflow-hidden"
                 onMouseEnter={() => handleEnter(7)}
                 onMouseLeave={() => handleLeave(7)}
               >
