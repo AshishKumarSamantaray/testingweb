@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import museum from "../../public/videos/museum3.mp4"
+import museum from "../../public/videos/backvideo16.mp4"
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
 import Nav from './Nav';
@@ -29,12 +29,7 @@ const HomeScreen = () => {
                 </Link>
             </div>
 
-            <div className='nameloccont absolute z-[10] w-[100%] h-[7vw] bottom-[6%] overflow-hidden'>
-                <div className='nameloc absolute z-[1] m-[2vw] flex items-start flex-col '>
-                    <h1 className='text-[1.5vw] tracking-wide text-white italic' >Indian Museum</h1>
-                    <h3 className='text-[0.8vw] tracking-wide text-white italic'>Kolkata, West Bengal</h3>
-                </div>
-            </div>
+
 
             <div className="ai absolute z-[10] bottom-[0%] w-[100%] h-[3.3vw] bg-amber-800 flex items-center justify-center">
               <h1 className='text-[1vw] text-white font-thin'>To know more about the <span className='font-extrabold text-white'>AI</span>, <a href="" className='text-white underline'>Click Here</a></h1>
