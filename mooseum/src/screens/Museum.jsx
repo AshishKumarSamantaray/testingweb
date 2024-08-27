@@ -1,9 +1,24 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Gallery from '../frontendComponents/Gallery'
 import LineLeft from '../frontendComponents/LineLeft'
 import LineRight from '../frontendComponents/LineRight'
-
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 const Museum = ({dets}) => {
+    useEffect(() => {
+        const lenis = new Lenis();
+    
+        lenis.on("scroll", (e) => {
+          console.log(e);
+        });
+    
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+    
+        requestAnimationFrame(raf);
+      });
   return (
     <div className="wrapper">
         <div className="imgcont w-[100%] h-[65vh] z-[0] relative">

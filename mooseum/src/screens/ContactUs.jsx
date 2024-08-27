@@ -1,8 +1,23 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import contactHeader from "../../public/assets/contactheader.png"
 import {Link} from "react-router-dom";
-
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 const ContactUs = () => {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    lenis.on("scroll", (e) => {
+      console.log(e);
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
   return (
       <div className='h-screen w-screen'>
         <div className='w-full h-[50%] bg-cover bg-center'

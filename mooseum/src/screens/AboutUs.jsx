@@ -1,8 +1,22 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Hero } from '../frontendComponents/Hero';
-
-
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 const AboutUs=() => {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    lenis.on("scroll", (e) => {
+      console.log(e);
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
   return (
     <>
     <Hero/>
