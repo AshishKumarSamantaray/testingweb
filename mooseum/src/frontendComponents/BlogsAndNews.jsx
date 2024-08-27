@@ -39,9 +39,9 @@ const BlogsAndNews = () => {
   return (
 
       <>
-        <LineLeft component="BLOGS AND NEWS"/>
+        <LineLeft component="UPDATES"/>
         <div className='w-[80vw] ml-[10vw] mb-[4vw]'>
-          <div className='mt-20'>
+          <div className='mt-[2vw]'>
             <Slider {...settings}>
             {
               data.map((d)=>{

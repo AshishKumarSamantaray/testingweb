@@ -19,13 +19,16 @@ const razorpay = new Razorpay({
 });
 
 app.post('/api/create-order', async (req, res) => {
+//varibale inside path
     try {
+        const amt=500//bring the varibale from the url
         const order = await razorpay.orders.create({
-            amount: 30 * 100, // Amount in paise
+            amount: amt * 100, //varibale to be included in place of amount
             currency: 'INR',
             receipt: 'KCH' + Math.random().toString(36).substring(7),
         });
-        res.json({ orderId: order.id });
+        res.json({ orderId: order.id,
+        amount:amt});//include the amount varibale
     } catch (error) {
         console.error('Error creating order:', error);
         res.status(500).json({ error: 'Error creating order' });
