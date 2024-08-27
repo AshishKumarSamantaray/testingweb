@@ -18,10 +18,10 @@ const razorpay = new Razorpay({
     key_secret: process.env.VITE_RAZORPAY_KEY_SECRET,
 });
 
-app.post('/api/create-order', async (req, res) => {
+app.post('/api/create-order/:amount', async (req, res) => {
 //varibale inside path
     try {
-        const amt=500//bring the varibale from the url
+        const amt=req.params.amount//bring the varibale from the url
         const order = await razorpay.orders.create({
             amount: amt * 100, //varibale to be included in place of amount
             currency: 'INR',

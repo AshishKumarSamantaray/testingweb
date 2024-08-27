@@ -9,7 +9,7 @@ function App() {
         setIsProcessing(true);
         try {
             // Fetch the order from your Express server
-            const response = await fetch('http://localhost:3000/api/create-order', { method: 'POST' });//variable to be inclued int he post url of the server side as well and thr frontend as well
+            const response = await fetch('http://localhost:3000/api/create-order/:amount', { method: 'POST' });//variable to be inclued int he post url of the server side as well and thr frontend as well
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
