@@ -91,7 +91,7 @@ const Museum = ({dets}) => {
                 </div>
             </div>
             <LineLeft component="ACCESSIBILITY"/>
-            <div className="accessiblity flex items-center justify-around w-[100%] h-[10vw] ">
+            <div className="accessiblity flex items-center   justify-around w-[100%] h-[10vw] ">
                 <div className="image h-[6vw] w-[6vw]  ">
                     <img className="w-[100%] h-[100%] object-cover" src="https://imgs.search.brave.com/QUSx7FoyjKP-4tAcgV0R4uDu-SfKqg5DVm0my4KD7_c/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4z/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvaGVhbHRoLWNh/cmUtNjIvMzIvRGlz/YWJpbGl0eS0wMS02/NC5wbmc" alt="" />
                 </div>
@@ -105,9 +105,9 @@ const Museum = ({dets}) => {
                     <img className="w-[100%] h-[100%] object-cover" src="https://imgs.search.brave.com/3s6ij5Rg5njD0XRVZeOIBrZqorEae7GwMjlqu0SSHh8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMTgv/ODg2LzU5MS9zbWFs/bC90b2lsZXQtcmVz/dHJvb20tbWVuLXdv/bWVuLWRpc2FibGVk/LWhhbmRpY2FwLXdo/ZWVsY2hhaXItc2ln/bi1wbmcucG5n" alt="" />
                 </div>
             </div>
+            <LineRight component="GALLERY"/>
+            <Gallery/>
         </div>
-
-        <Gallery/>
     </div>
   )
 }

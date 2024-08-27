@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
 import Nav from './Nav';
 import { Link } from 'react-router-dom';
+import LineRight from './LineRight';
 const HomeScreen = () => {
     const h1Ref = useRef();
     useGSAP(()=>{
@@ -39,6 +40,7 @@ const HomeScreen = () => {
               <h1 className='text-[1vw] text-white font-thin'>To know more about the <span className='font-extrabold text-white'>AI</span>, <a href="" className='text-white underline'>Click Here</a></h1>
             </div>
         </div>
+        <LineRight component="GALLERY"/>
     </>
   )
 }
