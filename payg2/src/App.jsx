@@ -9,7 +9,8 @@ function App() {
         setIsProcessing(true);
         try {
             // Fetch the order from your Express server
-            const response = await fetch('http://localhost:3000/api/create-order/:amount', { method: 'POST' });//variable to be inclued int he post url of the server side as well and thr frontend as well
+            const urlforpayment ='http://localhost:3000/api/create-order/6000'
+            const response = await fetch(urlforpayment, { method: 'POST' });//variable to be inclued int he post url of the server side as well and thr frontend as well
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -24,7 +25,8 @@ function App() {
                 description: "Test transaction",
                 order_id: data.orderId, // Ensure this matches the API response key
                 handler: function (response) {
-                    console.log("Payment successful", response);
+                    console.log(response)
+                    console.log(true)
                 },
                 prefill: {
                     name: "Ashish",
