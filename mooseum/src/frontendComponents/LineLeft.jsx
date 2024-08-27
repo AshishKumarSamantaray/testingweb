@@ -2,7 +2,7 @@ import React from 'react'
 
 const LineLeft = (props) => {
   return (
-    <div className="w-[100%] h-[7vw]  p-[1vw] flex items-center justify-between">
+    <div className="w-[100%] h-[7vw] mt-[2vw] p-[1vw] flex items-center justify-between">
         <div className='h-[100%] mr-[2vw] ml-[1vw]  w-[13vw] flex items-center justify-center'>
           <h1 className='text-[2vw] font-[400]'>{props.component}</h1>
         </div>

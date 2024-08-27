@@ -40,8 +40,8 @@ const Gallery = () => {
 
   return (
     <>
-      <LineRight component="GALLERY"/>
-      <div className="gallery__items w-[100%] h-[100vh] mt-[2vw] flex items-center justify-between ">
+      {/* <LineRight component="GALLERY"/> */}
+      <div className="gallery__items w-[100%] h-[100vh] flex items-center justify-between ">
         {/* Part 1 */}
         <div className="part1 p-[2vw] w-[25%] h-[100%] flex gap-[2vw] flex-col">
           <div
