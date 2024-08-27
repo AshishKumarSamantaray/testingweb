@@ -19,7 +19,7 @@ const razorpay = new Razorpay({
 });
 
 app.post('/api/create-order/:amount', async (req, res) => {
-//varibale inside path
+
     try {
         const amt=req.params.amount//bring the varibale from the url
         const order = await razorpay.orders.create({
