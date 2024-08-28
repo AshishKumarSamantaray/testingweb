@@ -24,7 +24,6 @@ const Home = () => {
   });
   return (
     <div>
-      <Nav/>
       <HomeScreen/>
       <Gallery/>
       <BlogsAndNews/>
