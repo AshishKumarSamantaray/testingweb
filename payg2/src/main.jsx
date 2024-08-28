@@ -5,6 +5,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import './index.css'
 import Layout from "./layout.jsx";
 import Contactus from "./contactus.jsx";
+import Downloadticket from "./downloadticket.jsx";
 
 
 
@@ -12,7 +13,7 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<Layout />}>
             <Route path='' element={<App />} />
-            <Route path='contact' element={<Contactus/>} />
+            <Route path='download' element={<Downloadticket/>} />
         </Route>
     )
 )

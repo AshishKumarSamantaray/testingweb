@@ -1,18 +1,27 @@
 "use client";
 import './App.css';
 import { useState } from "react";
-
-
+import axios from 'axios';
 
 
 function App() {
     const [isProcessing, setIsProcessing] = useState(false);
 
+    const postdata = async (data) => {
+        try {
+            const response = await axios.post('http://localhost:3000/api/data', data);
+            console.log('Data posted successfully:', response.data);
+        } catch (error) {
+            console.error('Error posting data:', error);
+        }
+    }
+
+
     const handlePayment = async () => {
         setIsProcessing(true);
         try {
             // Fetch the order from your Express server
-            const urlforpayment ='http://localhost:3000/api/create-order/6000'
+            const urlforpayment ='http://localhost:3000/api/create-order/99'
             const response = await fetch(urlforpayment, { method: 'POST' });//variable to be inclued int he post url of the server side as well and thr frontend as well
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -28,8 +37,16 @@ function App() {
                 description: "Test transaction",
                 order_id: data.orderId, // Ensure this matches the API response key
                 handler: function (response) {
-                    console.log(response)
-                    console.log(true)
+                   const jsonobj={
+                       // name:"ashish",
+                       // ticket:"inhdjala",
+                       ticket_id:"some random unique code",
+                       paymentstatus:true,
+                       paymentdetails:response
+                   }
+
+                   postdata(jsonobj)
+                   console.log(jsonobj)
                 },
                 prefill: {
                     name: "Ashish",
@@ -67,12 +84,7 @@ function App() {
             >
                 {isProcessing ? "Processing..." : "Let's Pay"}
             </button>
-            <br/>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                color="primary"
-            >
-                Download
-            </button>
+
         </div>
     );
 }
