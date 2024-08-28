@@ -23,7 +23,7 @@ const Museum = ({dets}) => {
     <div className="wrapper">
         <div className="imgcont w-[100%] h-[65vh] z-[0] relative">
             <div className="filter w-[100%] h-[100%] bg-black opacity-[0.5] z-[2] absolute"></div>
-            <video src={dets.vidsrc} alt="img" autoPlay loop muted className='w-[100%] h-[100%] absolute z-[1] object-cover'/>
+            <video src={dets.vidsrc} alt="vid" autoPlay loop muted className='w-[100%] h-[100%] absolute z-[1] object-cover'/>
             <div className="textcont absolute bottom-[0%] z-[3] pl-[2vw] w-[100%] h-[8vw]">
                 <h1 className='text-[3vw] text-white italic'>{dets.museumName}</h1>
                 <h3 className='text-[1vw] text-white font-[200]'>{dets.museumLocation}</h3>

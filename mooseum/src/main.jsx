@@ -7,6 +7,8 @@ import Home from './screens/Home.jsx'
 import AboutUs from './screens/AboutUs.jsx'
 import Museum from './screens/Museum.jsx'
 import ContactUs from './screens/ContactUs.jsx'
+import FilterPage from './screens/FilterPage.jsx'
+import { data } from 'autoprefixer'
 
 let museumDets=[
   {
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path:"museums",
-        element:<Museum dets={museumDets[0]}/>
+        element:<FilterPage/>
       },
       {
         path:"contact",

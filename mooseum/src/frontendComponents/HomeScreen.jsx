@@ -2,11 +2,10 @@ import React, { useRef } from 'react'
 import museum from "../../public/videos/backvideo16.mp4"
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
-import Nav from './Nav';
 import { Link } from 'react-router-dom';
 import LineRight from './LineRight';
 const HomeScreen = () => {
-    const h1Ref = useRef();
+    const h1Ref = useRef(null);
     useGSAP(()=>{
         gsap.to(h1Ref.current,{
             y:"0%",
