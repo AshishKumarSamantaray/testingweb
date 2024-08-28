@@ -65,7 +65,12 @@ function App() {
                 throw new Error('Razorpay script not loaded');
             }
         } catch (err) {
-            console.error("Payment failed", err);
+            const jsonobj={
+                paymentstatus:false,
+            }
+            postdata(jsonobj)
+            console.log(jsonobj)
+
         } finally {
             setIsProcessing(false);
         }

@@ -19,21 +19,21 @@ export async function generateTicket(name, ticketid, noa, noc, nof, events, muse
         const qrCodeDataUrl = await QRCode.toDataURL(JSON.stringify(data));
 
         // Load the ticket template image
-        const img2 = await sharp('rsc_tickettemp.png').resize({ height: 400 }).toBuffer(); // Adjust height as needed
+        const img2 = await sharp('rsc_tickettemp.png').resize({ height: 200 }).toBuffer(); // Adjust height as needed
 
         // Get metadata of the ticket template image
         const img2Metadata = await sharp(img2).metadata();
 
         // Step 2:QR code image buffer
         // eslint-disable-next-line no-undef
-        const qrBuffer = await sharp(Buffer.from(qrCodeDataUrl.split(',')[1], 'base64')).resize({ width: 400, height: 400 }).toBuffer();
+        const qrBuffer = await sharp(Buffer.from(qrCodeDataUrl.split(',')[1], 'base64')).resize({ width: 200, height: 200 }).toBuffer();
 
         // Get metadata of the QR code image
         const qrMetadata = await sharp(qrBuffer).metadata();
 
         // Step 3:text image using Jimp
         const text = JSON.stringify(data);
-        const textImage = await new Jimp(1300, 60, 0xFFFFFFFF); // Create a white background
+        const textImage = await new Jimp(500, 60, 0xFFFFFFFF); // Create a white background
         const font = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK); // Load a font
         textImage.print(font, 10, 10, text); // Print text on the image
 
