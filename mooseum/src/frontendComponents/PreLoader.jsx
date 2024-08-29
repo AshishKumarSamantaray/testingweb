@@ -89,7 +89,7 @@ const PreLoader = () => {
     })
   return (
     <>
-        <div ref={dummyRef2} className="container min-w-[200vw] flex h-[100vh] fixed top-[0%] z-[11] bg-white">
+        <div ref={dummyRef2} className="container min-w-[200vw] overflow-hidden flex h-[100vh] fixed top-[0%] z-[11] bg-white">
             <div ref={pageRef1} className="ticketingtext w-[100%] flex items-center justify-center h-[100vh] ">
                 <div className="text w-[60vw] relative z-[1] h-[4.6vw] overflow-hidden ">
                     <div className="textcontainer w-[100%] h-[100%] absolute z-[2] flex items-center justify-center gap-[2vw]">
