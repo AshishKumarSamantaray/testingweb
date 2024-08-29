@@ -5,9 +5,18 @@ import dotenv from "dotenv";
 import QRCode from "qrcode";
 import sharp from "sharp";
 import Jimp from "jimp";
-import { generateTicket } from "./src/ticketdownload/ticket3.js";
 import fs from "fs";
 import Mailjet from "node-mailjet";
+import mysql from "mysql2/promise";
+
+dotenv.config();
+
+const db = await mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
+});
 
 // Load environment variables from .env file
 dotenv.config();
@@ -46,7 +55,7 @@ app.post("/api/data", (req, res) => {
 });
 
 const sendTicketMail = (base64String, email = null, name = null) => {
-  if (email === null) {
+  if (email === null || email=="null") {
     return;
   }
 
@@ -95,23 +104,10 @@ const sendTicketMail = (base64String, email = null, name = null) => {
 };
 
 const genimage = async function generateTicket(
-  name,
-  ticketid,
-  noa,
-  noc,
-  nof,
-  events,
-  museumname,
-  status
+  ticketid
 ) {
   const data = {
-    name: name,
-    Tid: ticketid,
-    children: noc,
-    adults: noa,
-    foreigners: nof,
-    status: status,
-    Museum: museumname,
+    Tid: ticketid
   };
 
   try {
@@ -138,7 +134,19 @@ const genimage = async function generateTicket(
     const qrMetadata = await sharp(qrBuffer).metadata();
 
     // Step 3:text image using Jimp
-    const text = JSON.stringify(data);
+      const [ticketforgen] = await db.execute(
+          'SELECT * FROM Ticket WHERE ticket_id= ?',
+          [ticketid]
+      );
+
+      const dataforticket={
+          Name:ticketforgen[0].name,
+          museumname:ticketforgen[0].museum_name,
+          eventsname:ticketforgen[0].events
+      }
+
+
+      const text = JSON.stringify(dataforticket);//name,museumname,events
     const textImage = await new Jimp(1300, 60, 0xffffffff); // Create a white background
     const font = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK); // Load a font
     textImage.print(font, 10, 10, text); // Print text on the image
@@ -171,16 +179,13 @@ const genimage = async function generateTicket(
   }
 };
 
-app.get("/api/generate-image", async (req, res) => {
-  const buff = await genimage(
-    "sahil",
-    "hgfh789056",
-    2,
-    3,
-    5,
-    ["event1", "longevent2", "verylongevent3"],
-    "Regionalmuseumofnationalhistory",
-    "allowed"
+app.get("/api/generate-image/:ticketid/:emailid", async (req, res) => {
+
+    const tid=req.params.ticketid;
+    const eid=req.params.emailid;
+
+    const buff = await genimage(
+    tid
   ).catch((err) => console.error(err));
 
   const ticketFile = "./ticket.png";
@@ -191,7 +196,7 @@ app.get("/api/generate-image", async (req, res) => {
       res.status(500).send("Error reading file");
     } else {
       const base64Data = data.toString("base64");
-      sendTicketMail(base64Data, "sahildash386@gmail.com", "sahil");
+          sendTicketMail(base64Data, eid, tid);
       res.json({ data: base64Data });
     }
 

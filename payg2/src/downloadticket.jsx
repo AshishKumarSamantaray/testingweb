@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 
 
 function Downloadticket() {
@@ -7,7 +7,7 @@ function Downloadticket() {
 
     const downloadImage = async () => {
         try {
-      const response = await fetch("http://localhost:3000/api/generate-image"); // Replace with your server URL
+      const response = await fetch("http://localhost:3000/api/generate-image/ODI2408299757b/ashuspubg@gmail.com"); // Replace with your server URL
       const data = await response.json();
       const dataURI = `data:image/png;base64,${data.data}`; // Update MIME type for PNG
 
