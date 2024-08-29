@@ -18,7 +18,7 @@ function Test() {
     const handlePayment = async () => {
         setIsProcessing(true);
         try {
-            const urlforpayment = 'http://localhost:4000/api/create-order/99';
+            const urlforpayment = 'http://localhost:4000/api/create-order/99/ASHISH/7852569987/45/4/7/IndianMuseum';
             const response = await fetch(urlforpayment, { method: 'POST' });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -35,9 +35,13 @@ function Test() {
                 order_id: data.orderId,
                 handler: function (response) {
                     const jsonobj = {
-                        ticket_id: 'some unique code',
-                        name: "Ashish",
-                        museum_name: "Odisha State Museum",
+                        name: data.name,
+                        mobile_no: data.mobileno,
+                        noofchildren:data.no_of_children,
+                        noofforeigners:data.no_of_foreigners,
+                        noofadults:data.no_of_adults,
+                        museum_name: data.Museum_name,
+                        status:data.status,
                         paymentdetails: response
                     };
 

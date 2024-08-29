@@ -27,15 +27,31 @@ const db = await mysql.createConnection({
     database: process.env.DB_NAME
 });
 
-app.post('/api/create-order/:amount', async (req, res) => {
+app.post('/api/create-order/:amount/:name/:number/:noc/:nof/:noa/:museum_name', async (req, res) => {
     try {
         const amt = req.params.amount;
+        const nme = req.params.name;
+        const mobno=req.params.number;
+        const no_of_child = req.params.noc;
+        const no_of_for = req.params.nof;
+        const no_of_ad = req.params.noa;
+        const museum_name = req.params.museum_name;
+
         const order = await razorpay.orders.create({
             amount: amt * 100,
             currency: 'INR',
             receipt: 'KCH' + Math.random().toString(36).substring(7),
         });
-        res.json({ orderId: order.id, amount: amt });
+        res.json({ orderId: order.id,
+                         amount: amt,
+                         name:nme,
+            mobile_number:mobno,
+            no_of_children:no_of_child,
+            no_of_adults:no_of_ad,
+            no_of_foreigners:no_of_for,
+            Museum_name:museum_name,
+            status:"allowed"
+                         });
     } catch (error) {
         console.error('Error creating order:', error);
         res.status(500).json({ error: 'Error creating order' });
@@ -44,14 +60,21 @@ app.post('/api/create-order/:amount', async (req, res) => {
 
 app.post('/api/payment-success', async (req, res) => {
     try {
-        const { ticket_id, name, museum_name, paymentdetails } = req.body;
+        const { name,mobile_number, noofchildren, noofforeigners, noofadults,museum_name,status } = req.body;
 
         const [result] = await db.execute(
-            'INSERT INTO Ticket (ticket_id, name, museum_name, status) VALUES (?, ?, ?, ?)',
-            [ticket_id, name, museum_name, 'allowed']
+            'INSERT INTO Ticket (name, phone_number, no_of_adults, no_of_children,no_of_foreigners,museum_name,status) VALUES (?, ?, ?, ?)',
+            [name, mobile_number, noofchildren, noofforeigners, noofadults,museum_name,status]
         );
 
-        res.status(200).json({ message: 'Ticket inserted successfully' });
+        const [selectResult] = await db.execute(
+            'SELECT ticket_id FROM Ticket WHERE name = ? AND phone_number = ? AND no_of_adults = ? AND no_of_children = ? AND no_of_foreigners = ? AND museum_name = ? AND status = ?',
+            [name, mobile_number, noofadults, noofchildren, noofforeigners, museum_name, status]
+        );
+
+        const fetchedticketid=selectResult[0].ticket_id
+
+        res.status(200).json({ ticket_id:fetchedticketid});
     } catch (error) {
         console.error('Error inserting ticket:', error);
         res.status(500).json({ error: 'Error inserting ticket' });
