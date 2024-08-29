@@ -21,7 +21,7 @@ function Test() {
             const response = await axios.post('http://localhost:4000/api/payment-success-event', data);
             console.log('Event added for ticket successfully', response.data);
         } catch (error) {
-            console.error('Error inserting ticket:', error);
+            console.error('Error inserting event:', error);
         }
     }
 
