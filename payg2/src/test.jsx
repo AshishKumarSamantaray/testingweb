@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function Test() {
     const [isProcessing, setIsProcessing] = useState(false);
+    const [iseventprocess,setIseventprocess]=useState(false)
 
     const postdata = async (data) => {
         try {
@@ -14,6 +15,69 @@ function Test() {
             console.error('Error inserting ticket:', error);
         }
     }
+
+    const postdataevent = async (data) => {
+        try {
+            const response = await axios.post('http://localhost:4000/api/payment-success-event', data);
+            console.log('Event added for ticket successfully', response.data);
+        } catch (error) {
+            console.error('Error inserting ticket:', error);
+        }
+    }
+
+    const handleeventPayment = async () => {
+        setIseventprocess(true);
+        try {
+            const urlforpayment2 = 'http://localhost:4000/api/create-event-order/40/ODI2408298e7e6/durgapuja_4';
+            const response2 = await fetch(urlforpayment2, { method: 'POST' });
+            if (!response2.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data2 = await response2.json();
+
+
+            const options = {
+                key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+                amount: data2.amount * 100,
+                currency: "INR",
+                name: "MUSEOMATE",
+                description: "Test transaction",
+                order_id: data2.orderId,
+                handler: function (response) {
+                    const jsonobj2 = {
+                        Ticket_id:data2.ticketid,
+                        event_name:data2.eventname,
+                        paymentdetails: response,
+                    };
+
+                    postdataevent(jsonobj2);
+                    console.log(jsonobj2);
+                },
+                prefill: {
+                    name: "Ashish",
+                    email: "ashish@example.com",
+                    contact: "9999999999",
+                },
+                theme: {
+                    color: "#3399cc",
+                },
+            };
+
+            if (window.Razorpay) {
+                const rzp2 = new window.Razorpay(options);
+                rzp2.open();
+            } else {
+                throw new Error('Razorpay script not loaded');
+            }
+        } catch (err) {
+            console.error("Payment failed", err);
+        } finally {
+            setIsProcessing(false);
+        }
+    };
+
+
 
     const handlePayment = async () => {
         setIsProcessing(true);
@@ -83,6 +147,13 @@ function Test() {
                 disabled={isProcessing}
             >
                 {isProcessing ? "Processing..." : "Let's Pay"}
+            </button>
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={handleeventPayment}
+                disabled={iseventprocess}
+            >
+                {iseventprocess ? "setting event..." : "add event"}
             </button>
         </div>
     );
