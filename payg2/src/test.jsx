@@ -28,7 +28,7 @@ function Test() {
     const handleeventPayment = async () => {
         setIseventprocess(true);
         try {
-            const urlforpayment2 = 'http://localhost:4000/api/create-event-order/40/ODI2408298e7e6/durgapuja_4';
+            const urlforpayment2 = 'http://localhost:5000/api/create-event-order/40/ODI2408299757b/durgapuja_4';
             const response2 = await fetch(urlforpayment2, { method: 'POST' });
             if (!response2.ok) {
                 throw new Error('Network response was not ok');
@@ -82,7 +82,7 @@ function Test() {
     const handlePayment = async () => {
         setIsProcessing(true);
         try {
-            const urlforpayment = 'http://localhost:4000/api/create-order/99/ASHISH/7852567687/45/4/7/Odisha State Museum/2024-02-21';
+            const urlforpayment = 'http://localhost:4000/api/create-order/99/ASHISH/7788525677/45/4/7/Odisha State Museum/2024-02-21';
             const response = await fetch(urlforpayment, { method: 'POST' });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
