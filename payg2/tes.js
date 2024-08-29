@@ -25,23 +25,20 @@ const db = await mysql.createConnection({
     database: process.env.DB_NAME
 });
 
-app.post('api/create-event-order/:amount/:ticketid/:eventname_noofmemebers', async (req, res) => {
-    try{
-
-        const amtevent=req.params.amount;
-        const tid=req.params.ticketid;
-        const eventn=req.params.eventname_noofmemebers;
+app.post('api/create-event-order/:amount/:ticketid/:eventname', async (req, res) => {
+    try {
+        const amtevent = req.params.amount;
+        const tid = req.params.ticketid;
+        const eventn = req.params.eventname;
 
         const [seeStatus] = await db.execute(
             'SELECT status FROM Ticket WHERE ticket_id = ?',
             [tid]
         );
 
-        if(seeStatus[0].status!=="allowed")
-        {
+        if (seeStatus[0].status !== "allowed") {
             throw new Error('Status is not allowed');
         }
-
 
         const order = await razorpay.orders.create({
             amount: amtevent * 100,
@@ -52,16 +49,15 @@ app.post('api/create-event-order/:amount/:ticketid/:eventname_noofmemebers', asy
         res.json({
             orderId: order.id,
             amount: amtevent,
-            ticketid:tid,
-            eventname:eventn
+            ticketid: tid,
+            eventname: eventn
         });
 
-    }
-    catch (e) {
+    } catch (e) {
         console.error('Error creating event order:', e);
         res.status(500).json({ error: 'Error creating order' });
     }
-})
+});
 
 app.post('/api/payment-success-event', async (req, res) => {
     try {
@@ -73,14 +69,13 @@ app.post('/api/payment-success-event', async (req, res) => {
             [event_name, Ticket_id]
         );
 
-
-        res.status(200).json({ ticket_id: Ticket_id,
-            eventname:event_name});
+        res.status(200).json({ ticket_id: Ticket_id, eventname: event_name });
     } catch (error) {
         console.error('Error inserting ticket:', error);
         res.status(500).json({ error: 'Error inserting ticket' });
     }
 });
+
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

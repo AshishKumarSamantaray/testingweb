@@ -28,14 +28,13 @@ function Test() {
     const handleeventPayment = async () => {
         setIseventprocess(true);
         try {
-            const urlforpayment2 = 'http://localhost:5000/api/create-event-order/40/ODI2408299757b/durgapuja_4';
-            const response2 = await fetch(urlforpayment2, { method: 'POST' });
+            const url = 'http://localhost:5000/api/create-event-order/500/ODI2408299757b/durgapuja_8';
+            const response2 = await fetch(url, { method: 'POST' });
             if (!response2.ok) {
                 throw new Error('Network response was not ok');
             }
 
             const data2 = await response2.json();
-
 
             const options = {
                 key: import.meta.env.VITE_RAZORPAY_KEY_ID,
@@ -46,8 +45,8 @@ function Test() {
                 order_id: data2.orderId,
                 handler: function (response) {
                     const jsonobj2 = {
-                        Ticket_id:data2.ticketid,
-                        event_name:data2.eventname,
+                        Ticket_id: data2.ticketid,
+                        event_name: data2.eventname,
                         paymentdetails: response,
                     };
 
@@ -70,12 +69,15 @@ function Test() {
             } else {
                 throw new Error('Razorpay script not loaded');
             }
+
+
         } catch (err) {
             console.error("Payment failed", err);
         } finally {
             setIsProcessing(false);
         }
     };
+
 
 
 
