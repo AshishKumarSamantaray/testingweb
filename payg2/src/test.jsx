@@ -18,7 +18,7 @@ function Test() {
 
     const postdataevent = async (data) => {
         try {
-            const response = await axios.post('http://localhost:4000/api/payment-success-event', data);
+            const response = await axios.post('http://localhost:5000/api/payment-success-event', data);
             console.log('Event added for ticket successfully', response.data);
         } catch (error) {
             console.error('Error inserting event:', error);
@@ -28,7 +28,7 @@ function Test() {
     const handleeventPayment = async () => {
         setIseventprocess(true);
         try {
-            const url = 'http://localhost:5000/api/create-event-order/500/ODI2408299757b/durgapuja_8';
+            const url = 'http://localhost:5000/api/create-event-order/499/ODI24082943a27/lightsoundshow_9';
             const response2 = await fetch(url, { method: 'POST' });
             if (!response2.ok) {
                 throw new Error('Network response was not ok');
@@ -84,7 +84,7 @@ function Test() {
     const handlePayment = async () => {
         setIsProcessing(true);
         try {
-            const urlforpayment = 'http://localhost:4000/api/create-order/99/ASHISH/7788525677/45/4/7/Odisha State Museum/2024-02-21';
+            const urlforpayment = 'http://localhost:4000/api/create-order/69/Sahil/7788525677/4/4/7/Odisha State Museum/2024-02-21';
             const response = await fetch(urlforpayment, { method: 'POST' });
             if (!response.ok) {
                 throw new Error('Network response was not ok');

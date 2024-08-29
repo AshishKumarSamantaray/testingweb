@@ -25,7 +25,8 @@ const db = await mysql.createConnection({
     database: process.env.DB_NAME
 });
 
-app.post('api/create-event-order/:amount/:ticketid/:eventname', async (req, res) => {
+
+app.post('/api/create-event-order/:amount/:ticketid/:eventname', async (req, res) => {
     try {
         const amtevent = req.params.amount;
         const tid = req.params.ticketid;
@@ -40,14 +41,14 @@ app.post('api/create-event-order/:amount/:ticketid/:eventname', async (req, res)
             throw new Error('Status is not allowed');
         }
 
-        const order = await razorpay.orders.create({
+        const order2 = await razorpay.orders.create({
             amount: amtevent * 100,
             currency: 'INR',
             receipt: 'KCH' + Math.random().toString(36).substring(7),
         });
 
         res.json({
-            orderId: order.id,
+            orderId: order2.id,
             amount: amtevent,
             ticketid: tid,
             eventname: eventn
@@ -59,13 +60,13 @@ app.post('api/create-event-order/:amount/:ticketid/:eventname', async (req, res)
     }
 });
 
+
 app.post('/api/payment-success-event', async (req, res) => {
     try {
         const { Ticket_id, event_name } = req.body;
 
-        // Insert the ticket into the database
         const [updateResult] = await db.execute(
-            'UPDATE Ticket SET event_name = ? WHERE ticketid = ?',
+            'UPDATE Ticket SET events = ? WHERE ticket_id = ?',
             [event_name, Ticket_id]
         );
 
