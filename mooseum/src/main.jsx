@@ -13,7 +13,6 @@ import { data } from 'autoprefixer'
 let museumDets=[
   {
     vidsrc: '../public/videos/museum2.mp4',
-    imgsrc:"https://images.pexels.com/photos/1481464/pexels-photo-1481464.jpeg?auto=compress&cs=tinysrgb&w=800",
     museumName:"Indian Museum",
     museumLocation:"Kolkata, West Bengal",
     museumLocationURL:"",
