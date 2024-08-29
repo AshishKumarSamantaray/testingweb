@@ -50,7 +50,8 @@ app.post('/api/create-order/:amount/:name/:number/:noc/:nof/:noa/:museum_name', 
             no_of_adults:no_of_ad,
             no_of_foreigners:no_of_for,
             Museum_name:museum_name,
-            status:"allowed"
+            status:"allowed",
+            date:"2024-08-29"
                          });
     } catch (error) {
         console.error('Error creating order:', error);
