@@ -48,10 +48,10 @@ const ImageRight = ({data}) => {
               </Link>
           </div>
       </div>
-      <div ref={imageRef} className="relative opacity-0 translate-x-[100%] right h-[100%] rounded-l-[1vw] w-[47%] bg-red-500">
-          <Link to="">
+      <div ref={imageRef} className="relative opacity-0 translate-x-[100%] right h-[100%] rounded-l-[1vw] w-[47%] ">
+          {/* <Link to="">
             <img src="https://images.pexels.com/photos/2570059/pexels-photo-2570059.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" className='w-[100%] rounded-l-[1vw] h-[100%] object-cover'/>
-          </Link>
+          </Link> */}
       </div>
     </div>
   )

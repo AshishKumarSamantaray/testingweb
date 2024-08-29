@@ -35,9 +35,9 @@ const ImageLeft = ({data}) => {
   return (
     <div className="imgright flex mb-[1vw] items-center justify-between w-[100%] h-[25vw] ">
       <div ref={imageRef} className="relative translate-x-[-100%] left h-[100%] rounded-r-[1vw] w-[47%] ">
-        <Link to="">
+        {/* <Link to="">
             <img src="https://images.pexels.com/photos/3004909/pexels-photo-3004909.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" className='w-[100%] rounded-r-[1vw] h-[100%] object-cover'/>
-        </Link>
+        </Link> */}
       </div>
       <div className="right flex items-center justify-center flex-col relative h-[100%] w-[47%] ">
       <div className="test relative w-[20vw] h-[4vw] flex items-end justify-center  z-[5] overflow-hidden">
