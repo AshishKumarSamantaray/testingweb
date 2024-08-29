@@ -18,13 +18,14 @@ function Test() {
     const handlePayment = async () => {
         setIsProcessing(true);
         try {
-            const urlforpayment = 'http://localhost:4000/api/create-order/99/ASHISH/7852569987/45/4/7/IndianMuseum';
+            const urlforpayment = 'http://localhost:4000/api/create-order/99/ASHISH/7852567687/45/4/7/Odisha State Museum/2024-02-21';
             const response = await fetch(urlforpayment, { method: 'POST' });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
 
             const data = await response.json();
+
 
             const options = {
                 key: import.meta.env.VITE_RAZORPAY_KEY_ID,
@@ -36,13 +37,15 @@ function Test() {
                 handler: function (response) {
                     const jsonobj = {
                         name: data.name,
-                        mobile_no: data.mobileno,
+                        mobile_no: data.mobile_number,
                         noofchildren:data.no_of_children,
                         noofforeigners:data.no_of_foreigners,
                         noofadults:data.no_of_adults,
-                        museum_name: data.Museum_name,
+                        museum_name: data.museum_name,
                         status:data.status,
-                        paymentdetails: response
+                        date:data.date,
+                        paymentdetails: response,
+
                     };
 
                     postdata(jsonobj);
