@@ -3,6 +3,8 @@ import React from 'react'
 
 function Downloadticket() {
 
+    const downloadLinkRef = useRef(null);
+
     const downloadImage = async () => {
         try {
       const response = await fetch("http://localhost:3000/api/generate-image"); // Replace with your server URL
@@ -29,6 +31,7 @@ function Downloadticket() {
             >
                 Download
             </button>
+            <a ref={downloadLinkRef} style={{ display: "none" }} />
 
         </div>
     )
