@@ -5,24 +5,19 @@ function Downloadticket() {
 
     const downloadImage = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/generate-image'); // Replace with your server URL
-            const data = await response.json();
-            const blob = data.blob;
-            //
-            const url = window.URL.createObjectURL(blob);
-            console.log(url)
+      const response = await fetch("http://localhost:3000/api/generate-image"); // Replace with your server URL
+      const data = await response.json();
+      const dataURI = `data:image/png;base64,${data.data}`; // Update MIME type for PNG
 
-            // const link = document.createElement('a');
-            // link.href = url;
-            // link.download = 'downloaded-image.jpg';
-            // document.body.appendChild(link);
-            // link.click();
-            //
-            // document.body.removeChild(link);
-            // window.URL.revokeObjectURL(url);
-        } catch (error) {
-            console.error('Error downloading the image:', error);
-        }
+      if (downloadLinkRef.current) {
+        downloadLinkRef.current.href = dataURI;
+        downloadLinkRef.current.download = "ticket_image.png"; 
+        downloadLinkRef.current.click();
+        downloadLinkRef.current.href = ""; // Reset href
+      }
+    } catch (error) {
+      console.error("Error downloading the image:", error);
+    }
     };
 
     return (
