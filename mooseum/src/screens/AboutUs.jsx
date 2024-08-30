@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import { Hero } from '../frontendComponents/Hero';
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
+import Nav from '../frontendComponents/Nav';
 const AboutUs=() => {
   useEffect(() => {
     const lenis = new Lenis();
@@ -19,6 +20,7 @@ const AboutUs=() => {
   });
   return (
     <>
+    <Nav/>
     <Hero/>
     <section className="bg-white py-16">
     <div className="container mx-auto px-8">

@@ -5,6 +5,8 @@ import BlogsAndNews from '../frontendComponents/BlogsAndNews'
 import HomeScreen from '../frontendComponents/HomeScreen'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
+import ChatBot from './ChatBot'
+import PreLoader from '../frontendComponents/PreLoader'
 
 const Home = () => {
 
@@ -24,6 +26,8 @@ const Home = () => {
   });
   return (
     <div>
+      <Nav/>
+      {/* <PreLoader/> */}
       <HomeScreen/>
       <Gallery/>
       <BlogsAndNews/>

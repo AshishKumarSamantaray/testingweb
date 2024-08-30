@@ -3,6 +3,7 @@ import ImageRight from "../frontendComponents/ImageRight"
 import ImageLeft from "../frontendComponents/ImageLeft"
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
+import Nav from '../frontendComponents/Nav'
 const FilterPage = () => {
   const data = [
    {
@@ -34,7 +35,7 @@ const FilterPage = () => {
 
   return (
     <>
-        <div className="navbar w-[100%] h-[4.5vw] bg-[#1b0202]"></div>
+        <Nav/>
         <div className="filtering w-[100%] h-[5vw] bg-red-800">
           
         </div>

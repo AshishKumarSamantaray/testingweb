@@ -3,6 +3,7 @@ import contactHeader from "../../public/assets/contactheader.png"
 import {Link} from "react-router-dom";
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
+import Nav from '../frontendComponents/Nav';
 const ContactUs = () => {
   useEffect(() => {
     const lenis = new Lenis();
@@ -19,6 +20,8 @@ const ContactUs = () => {
     requestAnimationFrame(raf);
   });
   return (
+    <>
+      <Nav/>
       <div className='h-screen w-screen'>
         <div className='w-full h-[50%] bg-cover bg-center'
              style={{backgroundImage: `url(${contactHeader})`}}>
@@ -34,6 +37,8 @@ const ContactUs = () => {
           <p className="text-xl ">**Note that we are available from 7:00AM to 7:00PM</p>
         </div>
       </div>
+    </>
+      
   )
 }
 

@@ -10,6 +10,7 @@ import ContactUs from './screens/ContactUs.jsx'
 import FilterPage from './screens/FilterPage.jsx'
 import { data } from 'autoprefixer'
 import ChatBot from './screens/ChatBot.jsx'
+import PreLoader from './frontendComponents/PreLoader.jsx'
 
 let museumDets=[
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
     element:<App/>,
     children:[
       {
-        path:"",
+        path:"/home",
         element:<Home/>
       },
       {
