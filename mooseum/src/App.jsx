@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import PreLoader from './frontendComponents/PreLoader';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Navigate to other routes after preloader completes
 
-  // Function to hide preloader after animation completes
+  // Function to be called when preloader animation completes
   const handleAnimationComplete = () => {
-    setLoading(false);  // Only hide preloader after animation finishes
+    setLoading(false); // Set loading to false after preloader animation is done
+    navigate('/home'); // Navigate to home after animation completes
   };
 
   return (
     <div className="app-container">
       {loading ? (
-        <PreLoader onAnimationComplete={handleAnimationComplete} /> // Pass the callback to PreLoader
+        <PreLoader onAnimationComplete={handleAnimationComplete} />
       ) : (
-        <Outlet /> // Render the actual content when loading is false
+        <Outlet />  // Render the actual content only when loading is false
       )}
     </div>
   );

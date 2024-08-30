@@ -15,58 +15,51 @@ const PreLoader = ({ onAnimationComplete }) => {
   // Use useGSAP hook to trigger the animation
   useGSAP(() => {
     const tl = gsap.timeline({
-      onComplete: onAnimationComplete // This function is passed as prop to notify when animation completes
+      onComplete: onAnimationComplete // This triggers the callback after animation finishes
     });
 
-    tl.from(text1Ref.current, {
-      y: "100%",
-      duration: 0.4,
-      delay: 0.1,
-      ease: "circ.out"
+    tl.from(text1Ref.current, { y: "100%",
+       duration: 0.3,
+       delay: 0.1,
+       ease: "circ.out" 
     })
-      .from(text2Ref.current, {
-        y: "100%",
-        duration: 0.4,
-        delay: 0.1,
-        ease: "circ.out"
+      .from(text2Ref.current, { y: "100%",
+         duration: 0.3,
+         delay: 0.1,
+         ease: "circ.out" 
       })
-      .from(text3Ref.current, {
-        y: "100%",
-        duration: 0.4,
-        delay: 0.1,
-        ease: "circ.out"
+      .from(text3Ref.current, { y: "100%",
+         duration: 0.3,
+         delay: 0.1,
+         ease: "circ.out" 
       })
-      .from(text4Ref.current, {
-        y: "100%",
-        duration: 0.4,
-        delay: 0.1,
-        ease: "circ.out"
+      .from(text4Ref.current, { y: "100%",
+         duration: 0.3,
+         delay: 0.1,
+         ease: "circ.out" 
       })
-      .to(pageRef1.current, {
-        x: "-100%",
-        duration: 0.4,
-        // delay: 0.6,
-        ease: "circ.out"
+      .to(pageRef1.current, { x: "-100%",
+         duration: 0.5,
+         delay: 0.1,
+         ease: "circ.out" 
       })
-      .to(pageRef2.current, {
-        x: "-100%",
-        duration: 0.6,
-        // delay: 0.6,
-        ease: "circ.out"
+      .to(pageRef2.current, { x: "-100%",
+         duration: 0.5,
+         delay: 0.1,
+         ease: "circ.out" 
       })
-      .to(aiTextRef.current, {
-        y: "0%",
-        duration: 0.8,
-        // delay: 3.2,
-        ease: "circ.out"
+      .to(aiTextRef.current, { y: "0%",
+         duration: 0.8,
+         delay: 0.1,
+         ease: "circ.out" 
       })
-      .to(aiRef.current, {
+      .to(aiRef.current, { 
         scale: 99,
         opacity: 0,
-        duration: 1,
+        duration: 1.8,
         display: "none",
-        // delay: 4.2,
-        ease: "power1.out"
+        delay: 0.2,
+        ease: "power1.out" 
       });
   }, []);
 
@@ -77,15 +70,15 @@ const PreLoader = ({ onAnimationComplete }) => {
           <div className="textwrapper w-[60vw] absolute z-[95] h-[45vw] flex items-center justify-center ">
             <div ref={pageRef1} className="text w-[50%] h-[100%] flex items-center justify-center">
               <div className="ticketing flex items-center justify-center gap-[1vw] w-[90%] h-[5%] overflow-hidden ">
-                <h1 ref={text1Ref} className='text-amber-900 text-[1.5vw] font-[700] relative translate-y-[0%]'>TICKETING</h1>
-                <h1 ref={text2Ref} className='text-amber-700 text-[1.5vw] font-[500] relative translate-y-[0%]'>MADE</h1>
-                <h1 ref={text3Ref} className='text-amber-900 text-[1.5vw] font-[700] relative translate-y-[0%]'>EASY</h1>
-                <h1 ref={text4Ref} className='text-amber-700 text-[1.5vw] font-[500] relative translate-y-[0%]'>BY</h1>
+                <h1 ref={text1Ref} className='text-[1.5vw] text-amber-900 font-[700] relative translate-y-[0%]'>TICKETING</h1>
+                <h1 ref={text2Ref} className='text-[1.5vw] text-amber-700 font-[500] relative translate-y-[0%]'>MADE</h1>
+                <h1 ref={text3Ref} className='text-[1.5vw] text-amber-900 font-[700] relative translate-y-[0%]'>EASY</h1>
+                <h1 ref={text4Ref} className='text-[1.5vw] text-amber-700 font-[500] relative translate-y-[0%]'>BY</h1>
               </div>
             </div>
             <div ref={pageRef2} className="ai w-[50%] h-[100%] flex items-center justify-center">
               <div className="textcontainer w-[100%] h-[17%] flex overflow-hidden items-center justify-center ">
-                <h1 ref={aiTextRef} className='text-amber-900 relative translate-y-[100%] text-[4vw] tracking-[0.1vw] font-[700]'>SANGRAMITRA</h1>
+                <h1 ref={aiTextRef} className='relative text-amber-900 translate-y-[100%] text-[4vw] font-[700]'>SANGRAMITRA</h1>
               </div>
             </div>
           </div>
