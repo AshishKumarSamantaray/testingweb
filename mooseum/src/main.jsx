@@ -9,6 +9,7 @@ import Museum from './screens/Museum.jsx'
 import ContactUs from './screens/ContactUs.jsx'
 import FilterPage from './screens/FilterPage.jsx'
 import { data } from 'autoprefixer'
+import ChatBot from './screens/ChatBot.jsx'
 
 let museumDets=[
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         path:"contact",
         element: <ContactUs/>
       },
+      {
+        path:"chatbot",
+        element: <ChatBot/>
+      }
     ]
   }
 ])
