@@ -24,12 +24,12 @@ const Nav = () => {
     })
   },{scope:navRef})
   return (
-    <div ref={navRef} className='bg-transparent w-full h-[4.5vw] flex items-center justify-between fixed top-[0%] z-[11]'>
+    <div ref={navRef} className='bg-transparent w-full h-[4.5vw] flex items-center justify-between fixed top-[0%] z-[999]'>
       <div className='headings h-[100%] w-[28vw]  flex items-center justify-center'>
         <h1 className='text-[1.5vw] italic text-white'>National Council of Museums</h1>
       </div>
       <div className='tags h-[100%] w-[30vw]  flex items-center justify-center gap-[3vw] '>
-        <Link to="/" className='text-[0.8vw] font-hairline text-white underline'>Home</Link>
+        <Link to="/home" className='text-[0.8vw] font-hairline text-white underline'>Home</Link>
         <Link to="/about" className='text-[0.8vw] font-hairline text-white underline'>About Us</Link>
         <Link to="/museums" className='text-[0.8vw] font-hairline text-white underline'>Museums</Link>
         <Link to="/contact" className='text-[0.8vw] font-hairline text-white underline'>Contact</Link>
