@@ -2,7 +2,7 @@ import express from 'express';
 import Razorpay from 'razorpay';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import mysql from 'mysql2/promise';
+import mysql from 'mysql2';
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ const razorpay = new Razorpay({
 });
 
 // MySQL database connection
-const db = await mysql.createConnection({
+const db =mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
@@ -65,7 +65,7 @@ app.post('/api/payment-success-event', async (req, res) => {
     try {
         const { Ticket_id, event_name } = req.body;
 
-        const [updateResult] = await db.execute(
+        const [updateResult] =db.execute(
             'UPDATE Ticket SET events = ? WHERE ticket_id = ?',
             [event_name, Ticket_id]
         );

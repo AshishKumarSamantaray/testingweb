@@ -84,7 +84,7 @@ function Test() {
     const handlePayment = async () => {
         setIsProcessing(true);
         try {
-            const urlforpayment = 'http://localhost:4000/api/create-order/69/Pratyush/7088525687/4/4/7/Odisha State Museum/2024-02-30';
+            const urlforpayment = 'http://localhost:4000/api/create-order/78/satwik/9938754263/4/1/7/Odisha State Museum/2024-02-30';//museumid
             const response = await fetch(urlforpayment, { method: 'POST' });
             if (!response.ok) {
                 throw new Error('Network response was not ok');

@@ -2,7 +2,7 @@ import express from 'express';
 import Razorpay from 'razorpay';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import mysql from 'mysql2/promise';
+import mysql from 'mysql2';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -20,7 +20,7 @@ const razorpay = new Razorpay({
 });
 
 // MySQL database connection
-const db = await mysql.createConnection({
+const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
@@ -66,15 +66,16 @@ app.post('/api/create-order/:amount/:name/:number/:noc/:nof/:noa/:museum_name/:d
 app.post('/api/payment-success', async (req, res) => {
     try {
         const { name, mobile_no, noofchildren, noofforeigners, noofadults, museum_name, status , date } = req.body;
+        console.log(req.body)
 
         // Insert the ticket into the database
-        const [result] = await db.execute(
+        const [result] =db.execute(
             'INSERT INTO Ticket (name, phone_number, no_of_adults, no_of_children, no_of_foreigners, museum_name, status, purchase_date) VALUES (?, ?, ?, ?, ?, ?, ? ,?)',
             [name, mobile_no, noofchildren, noofforeigners, noofadults, museum_name, status, date]
         );
 
         // Fetch the ticket_id of the newly inserted record
-        const [selectResult] = await db.execute(
+        const [selectResult] =db.execute(
             'SELECT ticket_id FROM Ticket WHERE name = ? AND phone_number = ? AND no_of_adults = ? AND no_of_children = ? AND no_of_foreigners = ? AND museum_name = ? AND status = ? AND purchase_date = ?',
             [name, mobile_no, noofchildren, noofforeigners, noofadults, museum_name, status, date]
         );

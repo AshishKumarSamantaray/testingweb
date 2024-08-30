@@ -7,6 +7,7 @@ import Layout from "./layout.jsx";
 import Contactus from "./contactus.jsx";
 import Downloadticket from "./downloadticket.jsx";
 import Test from "./test.jsx";
+import Dropdown3 from "./filter.jsx";
 
 
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
             <Route path='' element={<App />} />
             <Route path='download' element={<Downloadticket/>} />
             <Route path='test' element={<Test/>} />
+            <Route path='filter' element={<Dropdown3/>} />
         </Route>
     )
 )
