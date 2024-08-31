@@ -123,8 +123,9 @@ const genimage = async function generateTicket(
     const img2Metadata = await sharp(img2).metadata();
 
     // Step 2:QR code image buffer
-    // eslint-disable-next-line no-undef
+     
     const qrBuffer = await sharp(
+        // eslint-disable-next-line no-undef
       Buffer.from(qrCodeDataUrl.split(",")[1], "base64")
     )
       .resize({ width: 400, height: 400 })
@@ -139,14 +140,22 @@ const genimage = async function generateTicket(
           [ticketid]
       );
 
-      const dataforticket={
-          Name:ticketforgen[0].name,
-          museumname:ticketforgen[0].museum_name,
-          eventsname:ticketforgen[0].events
-      }
 
+    const [museumactualname] = await db.execute(
+        'SELECT * FROM Museum WHERE ticket_id= ?',
+        [ticketforgen[0].museum_name]
+    );
 
-      const text = JSON.stringify(dataforticket);//name,museumname,events
+    const dft={
+      Name:ticketforgen[0].name,
+      museumname:museumactualname[0].name,
+      eventsname:ticketforgen[0].events,
+      noa:ticketforgen[0].no_of_adults,
+      noc:ticketforgen[0].no_of_children,
+      nof:ticketforgen[0].no_of_foreigners
+    }
+
+    const text = `Name:${dft.Name} / Museum:${dft.museumname} / Event: ${dft.eventsname} / Adults:${dft.noa} / Children:${dft.noc} / Foreigner: ${dft.nof}`;//name,museumname,events
     const textImage = await new Jimp(1300, 60, 0xffffffff); // Create a white background
     const font = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK); // Load a font
     textImage.print(font, 10, 10, text); // Print text on the image
